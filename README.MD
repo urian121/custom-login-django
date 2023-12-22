@@ -65,25 +65,14 @@
                 last_name = models.CharField(max_length=20, blank=True)
                 twitter_handle = models.CharField(max_length=20, blank=True)
 
-10. Crear una clase en models.py la cual reprtesentara mi tabla en BD,(bd_django) preferiblemente los modelos
-    se declaran en singular
+###### Aquí estamos creando un modelo (una tabla en nuestra BD) que hereda todos los campos de la AbstractUser clase que tiene los campos; username, username, email, password, etc, pero también estamos agregando un par de campos que no están allí. Agregamos los campos: first_name, last_name, twitter_handle
 
-        class Empleado(models.Model):
-                nombre_empleado = models.CharField(max_length=200)
-                apellido_empleado = models.CharField(max_length=100)
-                email_empleado = models.EmailField(max_length=50)
-                edad_empleado = models.IntegerField()
-                genero_empleado = models.CharField(max_length=80, choices=generos)
-                salario_empleado = models.DecimalField(
-                        max_digits=10, decimal_places=2, null=True, blank=True)
-                foto_empleado = models.ImageField(
-                        upload_to='fotos_empleados/', null=True, blank=True)
-                created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-                updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+10. Vamos al archivo admin.py agremos este cógido que nos permitira registrar y visualizar nuestra tabla de usuarios en el panel de Django Admin.
 
-11. crear la Base de Datos (bd_django_mysql) en MySQL
+        from .models import CustomUser
+        admin.site.register(CustomUser)
 
-12. Editar el archivo settings.py del proyecto, cambiando los parametros de conexión a MySQL
+11. Editar el archivo settings.py del proyecto, cambiando los parametros de conexión a MySQL
 
         `
         DATABASES = {
@@ -98,10 +87,14 @@
         }
         `
 
-13. Crear las migraciones y correrlas
+12. Crear las migraciones y correrlas
 
         python manage.py makemigrations -> Creando migraciones
         python manage.py migrate         -> Correr migraciones
+
+13. Crear usuario para el login desde la terminal
+
+        python manage.py createsuperuser
 
 14. Correr el proyecto
 
@@ -148,13 +141,11 @@
 
 #### Referencias:
 
-https://docs.djangoproject.com/en/5.0/topics/auth/customizing/
+https://testdriven.io/blog/django-custom-user-model/
 
-https://builtwithdjango.com/blog/user-authentication
+https://docs.djangoproject.com/es/5.0/topics/auth/customizing/
 
 https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-user-model/
-
-https://testdriven.io/blog/django-custom-user-model/
 
 https://vegibit.com/how-to-create-custom-user-models-and-authentication-backends-in-django/
 
