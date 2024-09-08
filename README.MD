@@ -149,14 +149,6 @@ https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-user-m
 
 https://vegibit.com/how-to-create-custom-user-models-and-authentication-backends-in-django/
 
-#### Resultado final
-
-#####Formulario para registrar Empleado
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/registrar-empleado-con-django-crud-urian-viera.png)
-
-##### Lista de Empleados
-
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/lista-de-empleados-crud-django-urian-viera.png)
 
 ### Expresiones de Gratitud 🎁
 
